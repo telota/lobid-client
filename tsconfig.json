@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "allowJs": true,
+    // "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src/**/*.ts", "test/LobidClient.ts"
+  ]
+}
