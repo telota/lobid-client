@@ -1,5 +1,5 @@
-export const lobidApi: string = 'http://lobid.org/gnd/search?q=';
+export const lobidGndApi: string = 'http://lobid.org/gnd/search?q=';
 
 export default {
-  lobidApi,
+  lobidGndApi,
 };

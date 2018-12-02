@@ -1,16 +1,22 @@
-export interface LobidQueryOptions {
-  query: string;
+interface KeyValuePair {
+  [key: string]: string;
+}
+
+export interface LobidGndQueryOptions {
+  query?: string;
   field?: string;
-  filter?: object;
+  filter?: KeyValuePair;
   size?: number;
   from?: number;
   format?: string;
 }
 
-export const lobidDefaultQueryOptions : LobidQueryOptions = {
+export const lobidDefaultGndQueryOptions : LobidGndQueryOptions = {
   query: '*',
   size: 100,
   format: 'json',
 };
 
-export default LobidQueryOptions;
+export const allowedLobidGndFormats : string[] = ['json'];
+
+export default LobidGndQueryOptions;

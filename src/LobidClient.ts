@@ -1,16 +1,29 @@
 import axios from 'axios';
-import { lobidApi } from './LobidConstants';
+import * as _ from 'lodash';
+import { LobidGndQueryOptions } from './LobidQueryOptions';
+import { buildLobidGndQuery } from './LobidQueryBuilder';
 
-class LobidClient {
+export function prepareSearchGnd(query: string, queryOptions: LobidGndQueryOptions = {}) : string {
+  let userQueryOptions: LobidGndQueryOptions = {
+    query,
+  };
 
-  private performQuery(queryOptions: QueryOptions) : boolean {
-    return false;
-  }
-
-  static search(query: string, queryOptions?: QueryOptions) : string {
-    return query;
-  }
-
+  userQueryOptions = _.merge(userQueryOptions, queryOptions);
+  return buildLobidGndQuery(userQueryOptions);
 }
 
-export default LobidClient;
+export async function searchGnd(
+    query: string,
+    queryOptions: LobidGndQueryOptions = {},
+  ) : Promise<any> {
+  const queryUri = prepareSearchGnd(query, queryOptions);
+
+  return await axios.get(queryUri)
+    .then((response)  => {
+      const { data } = response;
+      return data;
+    })
+    .catch(error => error);
+}
+
+export default searchGnd;
