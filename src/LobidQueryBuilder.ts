@@ -103,9 +103,9 @@ export function buildPagination(userQueryOptions: LobidGndQueryOptions) : string
     pagination += `&from=${userQueryOptions.from}`;
   }
 
-  if (_.has(userQueryOptions, 'size')) {
-    pagination += `&size=${userQueryOptions.size}`;
-  }
+  // Size will always be set when querying since it will
+  // be inserted by default if not set by the user
+  pagination += `&size=${userQueryOptions.size}`;
 
   return pagination;
 }

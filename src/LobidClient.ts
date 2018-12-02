@@ -12,18 +12,17 @@ export function prepareSearchGnd(query: string, queryOptions: LobidGndQueryOptio
   return buildLobidGndQuery(userQueryOptions);
 }
 
-export async function searchGnd(
+export function searchGnd(
     query: string,
     queryOptions: LobidGndQueryOptions = {},
   ) : Promise<any> {
   const queryUri = prepareSearchGnd(query, queryOptions);
 
-  return await axios.get(queryUri)
+  return axios.get(queryUri)
     .then((response)  => {
       const { data } = response;
       return data;
-    })
-    .catch(error => error);
+    });
 }
 
 export default searchGnd;

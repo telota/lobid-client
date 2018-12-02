@@ -20,6 +20,14 @@ describe('LobidQueryBuilder', () => {
 
       expect(validateQueryOptions(queryOptions).format).to.equal('json');
     });
+
+    it('just continues if the format is json', () => {
+      const queryOptions = {
+        query: 'Twain',
+        format: 'json',
+      };
+      expect(validateQueryOptions(queryOptions).format).to.equal('json');
+    });
   });
 
   describe('#prepareQueryOptions', () => {
