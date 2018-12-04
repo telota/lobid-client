@@ -3,6 +3,11 @@ import * as _ from 'lodash';
 import { LobidGndQueryOptions } from './LobidQueryOptions';
 import { buildLobidGndQuery } from './LobidQueryBuilder';
 
+/**
+ * Prepare the query URI
+ * @param query Query string passed in by the user
+ * @param queryOptions Optional additional query options
+ */
 export function prepareSearchGnd(query: string, queryOptions: LobidGndQueryOptions = {}) : string {
   let userQueryOptions: LobidGndQueryOptions = {
     query,
@@ -12,6 +17,11 @@ export function prepareSearchGnd(query: string, queryOptions: LobidGndQueryOptio
   return buildLobidGndQuery(userQueryOptions);
 }
 
+/**
+ * 
+ * @param query Query string passed in by the user
+ * @param queryOptions Optional additional query options
+ */
 export function searchGnd(
     query: string,
     queryOptions: LobidGndQueryOptions = {},

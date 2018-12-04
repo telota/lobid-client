@@ -9,6 +9,7 @@ export interface LobidGndQueryOptions {
   size?: number;
   from?: number;
   format?: string;
+  formatFields?: string[];
 }
 
 export const lobidDefaultGndQueryOptions : LobidGndQueryOptions = {

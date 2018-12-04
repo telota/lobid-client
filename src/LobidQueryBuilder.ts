@@ -30,7 +30,7 @@ export function buildLobidGndQuery(queryOptions: LobidGndQueryOptions) : string 
   lobidQueryUri += buildPagination(preparedQueryOptions);
 
   // Append format
-  lobidQueryUri += `&format=${preparedQueryOptions.format}`;
+  lobidQueryUri += buildFormat(preparedQueryOptions);
 
   return lobidQueryUri;
 }
@@ -93,7 +93,7 @@ export function buildFilters(userQueryOptions: LobidGndQueryOptions) : string {
 }
 
 /**
- * Build the pagination paraemter substring
+ * Build the pagination parameter substring
  * @param userQueryOptions Query options passed in by the user
  */
 export function buildPagination(userQueryOptions: LobidGndQueryOptions) : string {
@@ -108,6 +108,21 @@ export function buildPagination(userQueryOptions: LobidGndQueryOptions) : string
   pagination += `&size=${userQueryOptions.size}`;
 
   return pagination;
+}
+
+/**
+ * Build the format parameter
+ * @param userQueryOptions Query options passed in by the user
+ */
+export function buildFormat(userQueryOptions: LobidGndQueryOptions) : string {
+  let format = `&format=${userQueryOptions.format}`;
+
+  if (_.has(userQueryOptions, 'formatFields') && (userQueryOptions.format === 'json')) {
+    format += ':';
+    format += userQueryOptions.formatFields.join(',');
+  }
+
+  return format;
 }
 
 export default buildLobidGndQuery;

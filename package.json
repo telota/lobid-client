@@ -2,7 +2,7 @@
   "name": "lobid-client",
   "version": "1.0.0",
   "description": "Client for LOBID-GND",
-  "main": "index.js",
+  "main": "./dist/LobidClient.js",
   "author": "Oliver Pohl, TELOTA",
   "license": "MIT",
   "scripts": {

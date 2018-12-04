@@ -109,7 +109,7 @@ describe('LobidQueryBuilder', () => {
       expect(buildLobidGndQuery(queryOptions)).to.equal(expectation);
     });
 
-    it('build a query with a filter', () => {
+    it('builds a query with a filter', () => {
       const queryOptions = {
         query: 'Twain',
         field: 'preferredName',
@@ -123,7 +123,25 @@ describe('LobidQueryBuilder', () => {
       expect(buildLobidGndQuery(queryOptions)).to.equal(expectation);
     });
 
-    it('build a complete query uri and corrects the format', () => {
+    it('builds a query with format fields', () => {
+      const queryOptions = {
+        query: 'Twain',
+        field: 'preferredName',
+        filter: {
+          type: 'Person',
+        },
+        formatFields: [
+          'preferredName',
+          'professionOrOccupation',
+        ],
+      };
+
+      const expectation = `${lobidGndApi}preferredName:Twain&filter=type:Person`
+        + `${defaultParameters}:preferredName,professionOrOccupation`;
+      expect(buildLobidGndQuery(queryOptions)).to.equal(expectation);
+    });
+
+    it('builds a complete query uri and corrects the format', () => {
       const queryOptions = {
         query: 'Twain',
         field: 'preferredName',
