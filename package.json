@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Client for LOBID-GND",
   "main": "./dist/LobidClient.js",
+  "types": "./dist/LobidClient.d.ts",
   "author": "Oliver Pohl, TELOTA",
   "license": "Apache 2.0",
   "scripts": {
