@@ -6,6 +6,10 @@
   "types": "./dist/LobidClient.d.ts",
   "author": "Oliver Pohl, TELOTA",
   "license": "Apache 2.0",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/telota/lobid-client"
+  },
   "scripts": {
     "build": "tsc --declaration",
     "lint": "tslint -c tslint.json src/**/*.ts --project tsconfig.json",
