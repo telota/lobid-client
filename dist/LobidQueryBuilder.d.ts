@@ -20,8 +20,13 @@ export declare function prepareQueryOptions(userQueryOptions: LobidGndQueryOptio
  */
 export declare function buildFilters(userQueryOptions: LobidGndQueryOptions): string;
 /**
- * Build the pagination paraemter substring
+ * Build the pagination parameter substring
  * @param userQueryOptions Query options passed in by the user
  */
 export declare function buildPagination(userQueryOptions: LobidGndQueryOptions): string;
+/**
+ * Build the format parameter
+ * @param userQueryOptions Query options passed in by the user
+ */
+export declare function buildFormat(userQueryOptions: LobidGndQueryOptions): string;
 export default buildLobidGndQuery;
