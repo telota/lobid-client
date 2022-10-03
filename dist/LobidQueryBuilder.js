@@ -21,7 +21,7 @@ function buildLobidGndQuery(queryOptions) {
     // Append from and size pagination parameters if ther are any
     lobidQueryUri += buildPagination(preparedQueryOptions);
     // Append format
-    lobidQueryUri += "&format=" + preparedQueryOptions.format;
+    lobidQueryUri += buildFormat(preparedQueryOptions);
     return lobidQueryUri;
 }
 exports.buildLobidGndQuery = buildLobidGndQuery;
@@ -76,7 +76,7 @@ function buildFilters(userQueryOptions) {
 }
 exports.buildFilters = buildFilters;
 /**
- * Build the pagination paraemter substring
+ * Build the pagination parameter substring
  * @param userQueryOptions Query options passed in by the user
  */
 function buildPagination(userQueryOptions) {
@@ -90,5 +90,18 @@ function buildPagination(userQueryOptions) {
     return pagination;
 }
 exports.buildPagination = buildPagination;
+/**
+ * Build the format parameter
+ * @param userQueryOptions Query options passed in by the user
+ */
+function buildFormat(userQueryOptions) {
+    var format = "&format=" + userQueryOptions.format;
+    if (_.has(userQueryOptions, 'formatFields') && (userQueryOptions.format === 'json')) {
+        format += ':';
+        format += userQueryOptions.formatFields.join(',');
+    }
+    return format;
+}
+exports.buildFormat = buildFormat;
 exports.default = buildLobidGndQuery;
 //# sourceMappingURL=LobidQueryBuilder.js.map

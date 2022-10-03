@@ -3,6 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = require("axios");
 var _ = require("lodash");
 var LobidQueryBuilder_1 = require("./LobidQueryBuilder");
+/**
+ * Prepare the query URI
+ * @param query Query string passed in by the user
+ * @param queryOptions Optional additional query options
+ */
 function prepareSearchGnd(query, queryOptions) {
     if (queryOptions === void 0) { queryOptions = {}; }
     var userQueryOptions = {
@@ -12,6 +17,11 @@ function prepareSearchGnd(query, queryOptions) {
     return LobidQueryBuilder_1.buildLobidGndQuery(userQueryOptions);
 }
 exports.prepareSearchGnd = prepareSearchGnd;
+/**
+ *
+ * @param query Query string passed in by the user
+ * @param queryOptions Optional additional query options
+ */
 function searchGnd(query, queryOptions) {
     if (queryOptions === void 0) { queryOptions = {}; }
     var queryUri = prepareSearchGnd(query, queryOptions);
