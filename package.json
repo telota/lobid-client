@@ -19,7 +19,7 @@
     "Gemeinsame Normdatei"
   ],
   "scripts": {
-    "build": "tsc --declaration",
+    "build": "npx tsc --declaration",
     "lint": "tslint -c tslint.json src/**/*.ts --project tsconfig.json",
     "test": "mocha --require ts-node/register test/**/*.spec.ts",
     "coverage": "nyc mocha"
